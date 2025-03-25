@@ -62,7 +62,7 @@ const TransactionHistory = () => {
 
   return (
     <div className={`
-     ${transactions.length > 3 ? 'h-[145vh] md:max-2xl:h-[105vh]' :
+     ${transactions.length > 3 ? 'h-[185vh] md:max-2xl:h-[105vh]' :
       'h-[90vh]  md:max-2xl:h-[85vh]'}
       w-full flex justify-center items-center`}>
 
