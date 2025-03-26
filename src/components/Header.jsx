@@ -23,7 +23,7 @@ const Header = () => {
         gap-6 md:max-2xl:gap-8">
           <div className="h-auto w-auto mt-1">
           <a
-          href="#"
+          href="https://github.com/NajibHos/MoneyFlow"
           target="_blank">
           <i className='pi pi-github
           text-white hover:text-zinc-200' style={{ fontSize: '2rem' }}>
