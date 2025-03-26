@@ -43,7 +43,7 @@ const TransactionHistory = () => {
   }, [])
 
   // pagination logic
-  
+
   const [page, setPage] = useState(1);
   // mobile and tab devices
   const totalPagesforSM = Math.ceil(transactions.length / 3);
@@ -77,11 +77,10 @@ const TransactionHistory = () => {
   return (
     <div className={`
 ${transactions.length > 3 ? 'lg:max-2xl:h-[105vh]' : 'lg:max-2xl:h-[85vh]'}
-       h-[95vh] w-full flex justify-center items-start
-       lg:max-2xl:items-center`}>
+       h-[105vh] w-full flex justify-center items-center`}>
 
-      <div className="h-[80%] w-[90%] flex flex-col justify-start
-       md:max-2xl:justify-center items-center gap-12">
+      <div className="h-[80%] w-[90%] flex flex-col justify-center
+      items-center gap-12">
 
         {/* <div className={`h-auto w-full flex flex-col justify-center
         items-center gap-12`}> */}
