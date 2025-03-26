@@ -57,7 +57,7 @@ const AddExpense = () => {
   return (
     <div className='h-[95vh] md:max-2xl:h-[115vh] w-full flex
      justify-center items-center'>
-      <Toast ref={toast} className="mx-10 sm:max-2xl:m-0" />
+      <Toast ref={toast} className="ml-10 md:max-2xl:m-0" />
       <div className='h-full w-[90%] flex flex-col justify-center
       items-center gap-12'>
         <div className='h-auto w-full flex flex-col
