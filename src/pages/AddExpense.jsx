@@ -140,7 +140,7 @@ const AddExpense = () => {
               </div>
 
               <div className="w-full h-auto mt-4">
-              <button className="w-full py-2 bg-white text-zinc-950
+              <button className="w-full py-2 bg-red-600 text-white
               font-semibold rounded cursor-pointer text-base
               md:max-2xl:text-lg font-display"
                type="submit">
@@ -149,7 +149,7 @@ const AddExpense = () => {
               </div>
 
               <div className="w-full h-auto">
-              <button className="w-full py-2 bg-blue-600 text-white
+              <button className="w-full py-2 bg-white text-zinc-950
               font-semibold rounded cursor-pointer text-base
               md:max-2xl:text-lg font-display"
               type="button" onClick={() => navigate('/dashboard')}>
