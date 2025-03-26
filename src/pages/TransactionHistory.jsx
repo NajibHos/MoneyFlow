@@ -43,11 +43,25 @@ const TransactionHistory = () => {
   }, [])
 
   // pagination logic
+  
   const [page, setPage] = useState(1);
-  const totalPages = Math.ceil(transactions.length / 6);
+  // mobile and tab devices
+  const totalPagesforSM = Math.ceil(transactions.length / 3);
+  // desktop and laptop devices
+  const totalPagesforLG = Math.ceil(transactions.length / 6);
 
-  const selectPageRender = (selectedPage) => {
-    if (selectedPage >= 1 && selectedPage <= totalPages &&
+  const selectPageRenderSM = (selectedPage) => {
+    if (selectedPage >= 1 && selectedPage <= totalPagesforSM &&
+       selectedPage !== page) {
+      setPage(selectedPage);
+    } else {
+      console.log('How are you today?');
+
+    }
+  };
+
+  const selectPageRenderLG = (selectedPage) => {
+    if (selectedPage >= 1 && selectedPage <= totalPagesforLG &&
        selectedPage !== page) {
       setPage(selectedPage);
     } else {
@@ -62,12 +76,12 @@ const TransactionHistory = () => {
 
   return (
     <div className={`
-     ${transactions.length > 3 ? 'h-[185vh] md:max-2xl:h-[105vh]' :
-      'h-[90vh]  md:max-2xl:h-[85vh]'}
-      w-full flex justify-center items-center`}>
+${transactions.length > 3 ? 'lg:max-2xl:h-[105vh]' : 'lg:max-2xl:h-[85vh]'}
+       h-[95vh] w-full flex justify-center items-start
+       lg:max-2xl:items-center`}>
 
-      <div className="h-[80%] w-[90%] flex flex-col justify-center
-       items-center gap-12">
+      <div className="h-[80%] w-[90%] flex flex-col justify-start
+       md:max-2xl:justify-center items-center gap-12">
 
         {/* <div className={`h-auto w-full flex flex-col justify-center
         items-center gap-12`}> */}
@@ -92,7 +106,22 @@ const TransactionHistory = () => {
         </div>
         {/* </div> */}
 
-        <div className="h-auto w-full flex flex-col md:max-2xl:flex-row
+        <div className="h-auto w-full block lg:max-2xl:hidden">
+        <div className="h-auto w-full
+          flex flex-col md:max-2xl:flex-row
+          flex-wrap justify-start items-center gap-10">
+          {
+            transactions.slice((page - 1) * 3, page * 3).map((v, i) => {
+              return <TransactionCards data={v}
+               getTransactions={getTransactions}
+               key={i} />
+            })
+          }
+        </div>
+        </div>
+        <div className="h-auto w-full hidden lg:max-2xl:block">
+        <div className="h-auto w-full
+          flex flex-col md:max-2xl:flex-row
           flex-wrap justify-start items-center gap-10">
           {
             transactions.slice((page - 1) * 6, page * 6).map((v, i) => {
@@ -102,25 +131,27 @@ const TransactionHistory = () => {
             })
           }
         </div>
+        </div>
 
-        {totalPages > 1 && (
+        {/* pagination for small and mid screens */}
+        {totalPagesforSM > 1 && (
         <div className="w-full flex justify-center items-center gap-4
          sm:max-2xl:gap-8">
           <button
             className="bg-white text-zinc-900 rounded px-4 py-2
             cursor-pointer"
-            onClick={() => selectPageRender(page - 1)}>
+            onClick={() => selectPageRenderSM(page - 1)}>
             <i className="pi pi-arrow-left" style={{ fontSize: '1rem' }}>
             </i>
           </button>
 
-          {[...Array(totalPages)].map((_, i) => (
+          {[...Array(totalPagesforSM)].map((_, i) => (
 
             <button key={i}
                className={`bg-white text-zinc-900 rounded px-4 py-2
               cursor-pointer font-semibold font-display
                ${page === i + 1 ? 'selected' : ''} `}
-              onClick={() => selectPageRender(i + 1)}>
+              onClick={() => selectPageRenderSM(i + 1)}>
               {(i + 1).toString()}
             </button>
 
@@ -129,7 +160,41 @@ const TransactionHistory = () => {
           <button
             className="bg-white text-zinc-900 rounded px-4 py-2
             cursor-pointer"
-            onClick={() => selectPageRender(page + 1)}>
+            onClick={() => selectPageRenderSM(page + 1)}>
+           <i className="pi pi-arrow-right" style={{ fontSize: '1rem' }}>
+            </i>
+          </button>
+        </div>
+        )}
+
+        {/* pagination for big screens */}
+        {totalPagesforLG > 1 && (
+        <div className="w-full flex justify-center items-center gap-4
+         sm:max-2xl:gap-8">
+          <button
+            className="bg-white text-zinc-900 rounded px-4 py-2
+            cursor-pointer"
+            onClick={() => selectPageRenderLG(page - 1)}>
+            <i className="pi pi-arrow-left" style={{ fontSize: '1rem' }}>
+            </i>
+          </button>
+
+          {[...Array(totalPagesforLG)].map((_, i) => (
+
+            <button key={i}
+               className={`bg-white text-zinc-900 rounded px-4 py-2
+              cursor-pointer font-semibold font-display
+               ${page === i + 1 ? 'selected' : ''} `}
+              onClick={() => selectPageRenderLG(i + 1)}>
+              {(i + 1).toString()}
+            </button>
+
+          ))}
+
+          <button
+            className="bg-white text-zinc-900 rounded px-4 py-2
+            cursor-pointer"
+            onClick={() => selectPageRenderSM(page + 1)}>
            <i className="pi pi-arrow-right" style={{ fontSize: '1rem' }}>
             </i>
           </button>
