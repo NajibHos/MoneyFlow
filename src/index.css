@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
+/* daisy ui */
+@plugin "daisyui";
+
+body {
+  background-color: #000000;
+}
+
+/* removing scrollbar */
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* custom styles */
+@theme {
+  --font-headings: "Inter", "sans-serif";
+  --font-descriptions: "IBM Plex Sans", "sans-serif";
+  --breakpoint-2lg: 1280px;
+}
