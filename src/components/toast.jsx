@@ -6,7 +6,7 @@ const Toast = (props) => {
         <div className={`alert ${props.data.bg}`}>
         <span className="text-white text-base font-medium
          font-descriptions">
-          {props.data.title}
+          { props.data.title }
         </span>
         </div>
       </div>
