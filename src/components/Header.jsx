@@ -26,9 +26,9 @@ const Header = () => {
             !user ? (
 
               <>
-              <a href="#" target="_blank"
-                className="text-lg text-zinc-200
-                font-semibold cursor-pointer font-descriptions
+              <a href="https://github.com/NajibHos/MoneyFlow"
+               target="_blank"
+               className="text-lg text-zinc-200 cursor-pointer
                hover:text-white px-4 py-2 bg-transparent
                hover:bg-zinc-800 rounded-xl">
                 <Github  />
