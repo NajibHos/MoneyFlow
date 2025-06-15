@@ -54,7 +54,7 @@ const SignIn = () => {
               <div className="h-auto w-full">
                 <input type="email" placeholder="Enter your email here"
                   className="input w-full text-zinc-200 font-medium
-                  font-descriptions"
+                  font-descriptions bg-zinc-900"
                    required name="email" />
               </div>
               <div className="h-auto w-full text-left">
@@ -77,7 +77,7 @@ const SignIn = () => {
                   <input type="password" name="password"
                   placeholder="Enter your password here"
                   className="input w-full text-zinc-200 font-medium
-                  font-descriptions"
+                  font-descriptions bg-zinc-900"
                   required />
               </div>
               <div className="h-auto w-full text-left">

@@ -112,7 +112,7 @@ const AddExpense = () => {
               <div className="h-auto w-full">
                 <input type="text" placeholder="Type here"
                   className="input w-full text-zinc-100 font-medium
-                  font-descriptions"
+                  font-descriptions bg-zinc-900"
                    required name="name"/>
               </div>
             </div>
@@ -127,7 +127,7 @@ const AddExpense = () => {
               <div className="h-auto w-full">
                 <input type="number" placeholder="5000"
                   className="input w-full text-zinc-100 font-medium
-                  font-descriptions"
+                  font-descriptions bg-zinc-900"
                    required name="amount" />
               </div>
             </div>
@@ -142,7 +142,7 @@ const AddExpense = () => {
               <div className="h-auto w-full">
                 <input type="date"
                 className="input w-full text-zinc-100 font-medium
-                  font-descriptions" required name="date" />
+                  font-descriptions bg-zinc-900" required name="date" />
               </div>
             </div>
             <div className="h-auto w-full">

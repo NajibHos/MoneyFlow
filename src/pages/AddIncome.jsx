@@ -114,7 +114,7 @@ const AddIncome = () => {
               <div className="h-auto w-full">
                 <input type="text" placeholder="Type here"
                   className="input w-full text-zinc-100 font-medium
-                  font-descriptions"
+                  font-descriptions bg-zinc-900"
                    name="name" required />
               </div>
             </div>
@@ -129,7 +129,7 @@ const AddIncome = () => {
               <div className="h-auto w-full">
                 <input type="number" placeholder="50000"
                   className="input w-full text-zinc-100 font-medium
-                  font-descriptions"
+                  font-descriptions bg-zinc-900"
                    name="amount" required />
               </div>
             </div>
@@ -143,7 +143,7 @@ const AddIncome = () => {
               </div>
               <div className="h-auto w-full">
                 <input type="date" className="input w-full text-zinc-100
-                 font-medium font-descriptions"
+                 font-medium font-descriptions bg-zinc-900"
                  required name="date" />
               </div>
             </div>
