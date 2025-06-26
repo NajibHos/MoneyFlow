@@ -85,12 +85,12 @@ const Dashboard = () => {
 
 
   return (
-    <div className="h-[140vh] lg:max-2lg:h-[120vh]
-      2lg:max-2xl:h-[90vh] w-full flex justify-center items-center">
-      <div className="h-full w-[90%] flex flex-col justify-center
-       items-center gap-12">
+    <div className="h-auto py-12 lg:h-[90vh] lg:py-0 w-full flex justify-center
+     items-center">
+      <div className="h-auto w-[90%] flex flex-col justify-center
+       items-center gap-16 lg:gap-12">
         <div className="h-auto w-full text-center">
-          <h2 className="text-xl font-medium font-descriptions
+          <h2 className="text-2xl font-medium font-descriptions
           text-white">
             Dashboard
           </h2>
@@ -119,15 +119,11 @@ const Dashboard = () => {
               </h2>
             </div>
         </div>
-        <div className="h-auto w-full flex flex-col lg:max-2xl:flex-row
-        justify-center md:max-2xl:justify-between items-center
-        lg:max-2lg:flex-wrap gap-12 2lg:max-2xl:gap-0">
-          <div className="h-[220px] w-full
-          md:max-lg:w-[60%] lg:max-2lg:w-[40%] 2lg:max-2xl:w-[30%]
-          flex flex-col justify-start
-          items-center gap-8 border border-zinc-700 rounded-xl">
-            <div className="h-[50px] w-full bg-zinc-900 rounded-tl-xl
-            rounded-tr-xl px-8 flex justify-start items-center">
+        <div className="h-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="h-[220px] w-full flex flex-col justify-start
+          items-center gap-8 border border-zinc-900 rounded">
+            <div className="h-[50px] w-full bg-zinc-900 rounded-tl
+            rounded-tr px-8 flex justify-start items-center">
               <h2 className="text-lg font-medium font-descriptions
               text-white">
                 Total Income
@@ -169,12 +165,10 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="h-[220px] w-full
-          md:max-lg:w-[60%] lg:max-2lg:w-[40%] 2lg:max-2xl:w-[30%]
-          flex flex-col justify-start
-          items-center gap-8 border border-zinc-700 rounded-xl">
-            <div className="h-[50px] w-full bg-zinc-900 rounded-tl-xl
-            rounded-tr-xl px-8 flex justify-start items-center">
+          <div className="h-[220px] w-full flex flex-col justify-start
+          items-center gap-8 border border-zinc-900 rounded">
+            <div className="h-[50px] w-full bg-zinc-900 rounded-tl
+            rounded-tr px-8 flex justify-start items-center">
               <h2 className="text-lg font-medium font-descriptions
               text-white">
                 Total Expense
@@ -215,12 +209,10 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="h-[220px] w-full
-          md:max-lg:w-[60%] lg:max-2lg:w-[40%] 2lg:max-2xl:w-[30%]
-          flex flex-col justify-start
-          items-center gap-8 border border-zinc-700 rounded-xl">
-            <div className="h-[50px] w-full bg-zinc-900 rounded-tl-xl
-            rounded-tr-xl px-8 flex justify-start items-center">
+          <div className="h-[220px] w-full flex flex-col justify-start
+          items-center gap-8 border border-zinc-900 rounded">
+            <div className="h-[50px] w-full bg-zinc-900 rounded-tl
+            rounded-tr px-8 flex justify-start items-center">
               <h2 className="text-lg font-medium font-descriptions
               text-white">
                 Total Savings
