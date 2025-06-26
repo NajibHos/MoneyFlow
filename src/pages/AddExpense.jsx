@@ -68,7 +68,7 @@ const AddExpense = () => {
   return (
     <div className="h-[90vh] w-full flex justify-center items-center">
       <div className="h-full w-[90%] flex flex-col justify-center
-      items-center gap-12">
+      items-center gap-16 lg:gap-12">
         {
           status === 'Success' ?
           <Toast data={toastDataSuccess} /> : status === 'Failed' ?
@@ -110,7 +110,7 @@ const AddExpense = () => {
                 </h2>
               </div>
               <div className="h-auto w-full">
-                <input type="text" placeholder="Type here"
+                <input type="text" placeholder="Enter expense type"
                   className="input w-full text-zinc-100 font-medium
                   font-descriptions bg-zinc-900"
                    required name="name"/>
@@ -125,7 +125,7 @@ const AddExpense = () => {
                 </h2>
               </div>
               <div className="h-auto w-full">
-                <input type="number" placeholder="5000"
+                <input type="number" placeholder="Enter amount"
                   className="input w-full text-zinc-100 font-medium
                   font-descriptions bg-zinc-900"
                    required name="amount" />
@@ -140,7 +140,7 @@ const AddExpense = () => {
                 </h2>
               </div>
               <div className="h-auto w-full">
-                <input type="date"
+                <input type="date" placeholder="Enter date"
                 className="input w-full text-zinc-100 font-medium
                   font-descriptions bg-zinc-900" required name="date" />
               </div>
