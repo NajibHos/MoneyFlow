@@ -64,8 +64,8 @@ const TransactionHistory = () => {
   }
 
   return (
-    <div className="h-auto py-12 lg:h-[90vh] lg:py-0 w-full flex justify-center
-     items-center">
+    <div className={`py-12 lg:h-[90vh] lg:py-0 w-full flex justify-center
+     items-center ${dataLength < 3 ? 'h-[90vh]' : 'h-auto'}`}>
       <div className={`w-[90%] flex flex-col justify-start items-center gap-16
         lg:gap-16 ${dataLength < 4 ? 'h-auto lg:h-[80%]' : 'h-auto'}`}>
         <div className="h-auto w-full flex flex-col justify-center
