@@ -11,6 +11,7 @@ const TransactionHistory = () => {
   const location = useLocation();
   const { dataType } = location.state || {}; // Query for fetching data
   const [ transactions, setTransactions ] = useState([]);
+  const [dataLength, setDataLength] = [0];
 
   //fetching transaction data
   const getTransactions = async () => {
@@ -27,6 +28,7 @@ const TransactionHistory = () => {
       )
 
       setTransactions(data.documents);
+      setDataLength(data.total);
 
     } catch (error) {
       console.error('Fetching error ' + error.message);
@@ -64,13 +66,13 @@ const TransactionHistory = () => {
   return (
     <div className="h-auto py-12 lg:h-[90vh] lg:py-0 w-full flex justify-center
      items-center">
-      <div className="h-[80%] w-[90%] flex flex-col justify-start
-      items-center gap-16 lg:gap-16">
+      <div className={`w-[90%] flex flex-col justify-start items-center gap-16
+        lg:gap-16 ${dataLength < 4 ? 'h-auto lg:h-[80%]' : 'h-auto'}`}>
         <div className="h-auto w-full flex flex-col justify-center
         items-center gap-4">
           <div className="h-auto w-full text-center">
             <h2 className="font-medium font-descriptions text-zinc-200
-              text-xl">
+              text-2xl">
               Transaction History
             </h2>
           </div>
