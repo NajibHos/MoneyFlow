@@ -37,10 +37,24 @@ const TransactionHistory = () => {
 
   }
 
+  const removeTransaction = async (docID) => {
+    try {
+        await databases.deleteDocument(
+        DatabaseID,
+        DBCollectionID,
+        docID
+      )
+
+      // fetching the transactions again
+      getTransactions();
+
+    } catch (error) {
+      console.error('Error removing transaction: ' + error.message);
+    }
+  }
+
   useEffect(() => {
-
     getTransactions();
-
   }, [])
 
   if (loading) {
@@ -48,9 +62,10 @@ const TransactionHistory = () => {
   }
 
   return (
-    <div className="h-[90vh] w-full flex justify-center items-center">
+    <div className="h-auto py-12 lg:h-[90vh] lg:py-0 w-full flex justify-center
+     items-center">
       <div className="h-[80%] w-[90%] flex flex-col justify-start
-      items-center gap-12">
+      items-center gap-16 lg:gap-16">
         <div className="h-auto w-full flex flex-col justify-center
         items-center gap-4">
           <div className="h-auto w-full text-center">
@@ -68,12 +83,12 @@ const TransactionHistory = () => {
             </Link>
           </div>
         </div>
-        <div className="h-auto max-h-[600px] w-full flex flex-col
-         justify-start items-center gap-6 overflow-auto">
+        <div className="h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+        gap-8">
           {
             transactions.map((value, index) => {
               return <TransactionCards
-              data={value} key={index} fetchData={getTransactions} />
+              data={value} key={index} removeTransaction={removeTransaction} />
             })
           }
         </div>
