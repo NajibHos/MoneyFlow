@@ -9,7 +9,7 @@ const Home = () => {
       justify-center items-center gap-10 md:max-2xl:gap-8">
 
        <div className="h-auto w-full text-center flex flex-col gap-4">
-          <h2 className="text-2xl text-white font-semibold
+          <h2 className="text-3xl text-white font-semibold
            cursor-pointer font-headings">
             Money
             <span className="italic">Flow</span>
@@ -77,7 +77,7 @@ const Home = () => {
           <button className="text-lg text-zinc-900
             font-semibold cursor-pointer font-descriptions
              px-4 py-2 bg-zinc-200 rounded-xl" type="button">
-            Visit APP
+            Visit App
           </button>
           </Link>
        </div>
