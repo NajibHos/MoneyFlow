@@ -30,10 +30,10 @@ const SignIn = () => {
   return (
     <div className="h-[90vh] w-full flex justify-center items-center">
       <div className="h-full w-[90%] flex flex-col justify-center
-       items-center gap-12">
+       items-center gap-16 lg:gap-12">
         <div className="h-auto w-full text-center">
           <h2 className="font-medium font-descriptions text-zinc-200
-              text-xl">
+              text-2xl">
               Sign In
           </h2>
         </div>
