@@ -19,12 +19,9 @@ const Header = () => {
           </h2>
           </Link>
         </div>
-
-        <div className="h-auto w-[40%] flex justify-end items-center
-        gap-4">
+        <div className="h-auto w-[40%] flex justify-end items-center gap-2">
           {
             !user ? (
-
               <>
               <a href="https://github.com/NajibHos/MoneyFlow"
                target="_blank"
@@ -36,7 +33,7 @@ const Header = () => {
 
               {/* 2 different buttons for smaller and larger screens */}
               <Link to='/sign-in'>
-              <button type="button" className="block md:max-2xl:hidden
+              <button type="button" className="block md:hidden
                 text-lg text-zinc-200 font-semibold cursor-pointer
                 font-descriptions
                hover:text-white px-4 py-2 bg-transparent
@@ -46,7 +43,7 @@ const Header = () => {
               </Link>
 
               <Link to='/sign-in'>
-              <button type="button" className="hidden md:max-2xl:block
+              <button type="button" className="hidden md:block
                 text-lg text-zinc-200 font-semibold cursor-pointer
                 font-descriptions
                hover:text-white px-4 py-2 bg-transparent
@@ -54,16 +51,13 @@ const Header = () => {
                 Sign in
               </button>
               </Link>
-
               </>
-
             ) : (
-
               <>
                 {/* 2 different buttons for smaller and larger screens */}
                 <Link to='/dashboard'>
                 <button type="button"
-                  className="block md:max-2xl:hidden
+                  className="block md:hidden
                   text-lg text-zinc-200
                   font-semibold cursor-pointer font-descriptions
                  hover:text-white px-4 py-2 bg-transparent
@@ -74,7 +68,7 @@ const Header = () => {
 
                 <Link to='/dashboard'>
                 <button type="button"
-                  className="hidden md:max-2xl:block
+                  className="hidden md:block
                   text-lg text-zinc-200
                   font-semibold cursor-pointer font-descriptions
                  hover:text-white px-4 py-2 bg-transparent
@@ -84,7 +78,7 @@ const Header = () => {
                 </Link>
 
                 <button type="button"
-                  className="block md:max-2xl:hidden
+                  className="block md:hidden
                   text-lg text-zinc-200
                   font-semibold cursor-pointer font-descriptions
                  hover:text-white px-4 py-2 bg-transparent
@@ -94,7 +88,7 @@ const Header = () => {
                 </button>
 
                 <button type="button"
-                  className="hidden md:max-2xl:block
+                  className="hidden md:block
                   text-lg text-zinc-200
                   font-semibold cursor-pointer font-descriptions
                  hover:text-white px-4 py-2 bg-transparent
@@ -103,7 +97,6 @@ const Header = () => {
                   Sign Out
                 </button>
               </>
-
             )
           }
         </div>
