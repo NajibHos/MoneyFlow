@@ -78,7 +78,7 @@ const AddExpense = () => {
         items-center gap-4">
           <div className="h-auto w-full text-center">
             <h2 className="font-medium font-descriptions text-zinc-200
-              text-xl">
+              text-2xl">
               Add Expense
             </h2>
           </div>
