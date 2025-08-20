@@ -38,17 +38,24 @@ const Home = () => {
             empowers you to take control of your money and make smarter financial decisions.
           </p>
         </div>
-        <div className="h-auto w-full text-left">
-          <h2 className="text-base font-text font-medium
-            text-zinc-700 dark:text-zinc-300"
-          >
-            Built with: <span className="text-zinc-900 dark:text-white">
-            React, Appwrite, Daisy UI, Tailwind CSS
-            </span>
-          </h2>
+        <div className="h-auto w-full flex flex-col justify-center items-center gap-2">
+          <div className="h-auto w-full text-left">
+            <h2 className="text-base font-text font-medium
+              text-zinc-700 dark:text-zinc-300"
+            >
+              Built with:
+            </h2>
+          </div>
+          <div className="h-auto w-full text-left">
+            <h2 className="text-base font-text font-medium
+              text-zinc-900 dark:text-white"
+            >
+              React, Appwrite, Daisy UI, Tailwind CSS
+            </h2>
+          </div>
         </div>
         <div className="h-auto w-full flex flex-col justify-center
-          items-start gap-4"
+          items-start gap-2"
         >
           <div className="h-auto w-full text-left">
             <h2 className="text-base font-text font-medium
@@ -110,6 +117,20 @@ const Home = () => {
             </Link>
           </div>
         }
+        <div className="h-auto w-full text-center">
+          <h2 className="text-base font-text font-medium 
+            text-zinc-700 dark:text-zinc-300"
+          >
+            Web App developed by
+            <a 
+              href="https://najibdev.vercel.app" 
+              target="_blank"
+              className="text-blue-600 underline ml-1"
+            >
+              Najib Hossain
+            </a>
+          </h2>
+        </div>
       </div>
     </div>
   )
