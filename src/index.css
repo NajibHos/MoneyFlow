@@ -4,9 +4,9 @@
 /* daisy ui */
 @plugin "daisyui";
 
-body {
-  background-color: #000000;
-}
+/* tailwind dark mode config */
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 /* removing scrollbar */
 html {
@@ -22,4 +22,6 @@ body::-webkit-scrollbar {
   --font-headings: "Inter", "sans-serif";
   --font-descriptions: "IBM Plex Sans", "sans-serif";
   --breakpoint-2lg: 1280px;
+  --color-card-dark: #171717;
+  --color-card-light: #ffffff;
 }
