@@ -10,17 +10,20 @@ const AddIncome = () => {
   const [status, setStatus] = useState('');
   const toastDataSuccess = {
     title: 'Transaction added Successfully',
-    bg: 'bg-green-600'
+    bg: 'bg-green-700'
   }
   const toastDataFailed = {
     title: 'Failed to add Transaction',
-    bg: 'bg-red-600'
+    bg: 'bg-red-700'
   }
+
+  // init navigation
   const navigate = useNavigate();
 
+  // form action
   async function formAction(formData) {
     const transaction_name = formData.get('name');
-    //converting transaction amount to integer
+    //convert transaction amount to integer
     const transaction_amount = parseInt(formData.get('amount'), 10);
     const transaction_date = formData.get('date');
     const transaction_type = 'Income';
@@ -38,119 +41,141 @@ const AddIncome = () => {
         }
       )
 
-      //triggering success toast
+      //trigger success toast
       setStatus('Success');
 
-      //reseting success toast to disable after 4 secs
+      //reset success toast to disable after 3 secs
       setTimeout(() => {
-
         setStatus('');
-
-      }, 4000);
+      }, 3000);
 
     } catch (error) {
-      //printing the error
+      //print the error
       console.error('Submission error ' + error.message);
 
-      //triggering failed toast
+      //trigger failed toast
       setStatus('Failed');
 
-      //reseting failed toast to disable after 4 secs
+      //reset failed toast to disable after 3 secs
       setTimeout(() => {
-
         setStatus('');
-
       }, 3000);
 
     }
   }
 
   return (
-
-    <div className="h-[90vh] w-full flex justify-center items-center">
-      <div className="h-full w-[90%] flex flex-col justify-center
-      items-center gap-16 lg:gap-12">
+    <div className="h-auto w-full py-12 flex justify-center items-center">
+      <div className="h-auto w-[90%] flex flex-col justify-center
+        items-center gap-16 lg:gap-14"
+      >
         {
-          status === 'Success' ?
-          <Toast data={toastDataSuccess} /> : status === 'Failed' ?
-          <Toast data={toastDataFailed}/> : ''
+          status === 'Success' 
+          ? <Toast data={toastDataSuccess} /> 
+          : status === 'Failed' 
+          ? <Toast data={toastDataFailed}/> : ''
         }
         <div className="h-auto w-full flex flex-col justify-center
-        items-center gap-4">
+          items-center gap-4"
+        >
           <div className="h-auto w-full text-center">
-            <h2 className="font-medium font-descriptions text-zinc-200
-              text-2xl">
+            <h2 className="text-2xl font-headings font-medium
+              text-zinc-800 dark:text-zinc-200"
+            >
               Add Income
             </h2>
           </div>
           <div className="h-auto w-full text-center">
-            <h2 className="font-medium font-descriptions text-zinc-200
-              text-base underline cursor-pointer"
+            <h2 className="text-base font-descriptions font-medium
+              underline cursor-pointer text-zinc-700 dark:text-zinc-300"
               onClick={() => {
                 navigate(
                   '/transaction-history',
                   {state: {dataType: 'Income'}} //
                 )
               }}
-              >
+            >
               Income History
             </h2>
           </div>
         </div>
-        <div className="h-auto w-full md:max-lg:w-[60%]
-        lg:max-2xl:w-[50%]">
-          {/* I'm using React 19 form handling feature here */}
-          <form action={formAction}
-          className="h-auto w-full flex flex-col justify-center
-          items-center gap-8">
+        <div className="h-auto w-full md:w-[60%] lg:w-[50%] flex justify-center items-center">
+          <form 
+            action={formAction}
+            className="h-auto w-full flex flex-col justify-center
+            items-center gap-8"
+          >
             <div className="h-auto w-full flex flex-col justify-center
-            items-center gap-2">
+              items-center gap-2"
+            >
               <div className="h-auto w-full text-left">
-                <h2 className="font-medium font-descriptions text-zinc-200
-                  text-base">
-                  Income Type
+                <h2 className="text-base font-medium font-descriptions 
+                  text-zinc-700 dark:text-zinc-300"
+                >
+                  Income Type*
                 </h2>
               </div>
               <div className="h-auto w-full">
-                <input type="text" placeholder="Enter income type"
-                  className="input w-full text-zinc-100 font-medium
-                  font-descriptions bg-zinc-900"
-                   name="name" required />
+                <input 
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="type here"
+                  className="input w-full text-base font-descriptions font-medium
+                  text-zinc-900 dark:text-white bg-transparent border 
+                  border-zinc-300 dark:border-zinc-400"
+                />
               </div>
             </div>
             <div className="h-auto w-full flex flex-col justify-center
-            items-center gap-2">
+              items-center gap-2"
+            >
               <div className="h-auto w-full text-left">
-                <h2 className="font-medium font-descriptions text-zinc-200
-                  text-base">
-                  Amount
+                <h2 className="text-base font-medium font-descriptions 
+                  text-zinc-700 dark:text-zinc-300"
+                >
+                  Amount*
                 </h2>
               </div>
               <div className="h-auto w-full">
-                <input type="number" placeholder="Enter amount"
-                  className="input w-full text-zinc-100 font-medium
-                  font-descriptions bg-zinc-900"
-                   name="amount" required />
+                <input 
+                  type="number"
+                  name="amount"
+                  required 
+                  placeholder="type here"
+                  className="input w-full text-base font-descriptions font-medium
+                  text-zinc-900 dark:text-white bg-transparent border 
+                  border-zinc-300 dark:border-zinc-400"
+                />
               </div>
             </div>
             <div className="h-auto w-full flex flex-col justify-center
-            items-center gap-2">
+              items-center gap-2"
+            >
               <div className="h-auto w-full text-left">
-                <h2 className="font-medium font-descriptions text-zinc-200
-                  text-base">
-                  Date
+                <h2 className="text-base font-medium font-descriptions 
+                  text-zinc-700 dark:text-zinc-300"
+                >
+                  Date*
                 </h2>
               </div>
               <div className="h-auto w-full">
-                <input type="date" className="input w-full text-zinc-100
-                 font-medium font-descriptions bg-zinc-900"
-                 required name="date" placeholder="Enter date" />
+                <input 
+                  type="date"
+                  name="date"
+                  required
+                  className="input w-full text-base font-descriptions font-medium
+                  text-zinc-900 dark:text-white bg-transparent border 
+                  border-zinc-300 dark:border-zinc-400"
+                />
               </div>
             </div>
-            <div className="h-auto w-full">
-              <button type="submit" className="w-full py-2 bg-green-600
-                text-base font-medium font-descriptions rounded
-                text-zinc-200 cursor-pointer">
+            <div className="h-auto w-full mt-2">
+              <button 
+                type="submit"
+                className="w-full py-2 text-base font-descriptions font-medium  
+                rounded cursor-pointer text-white bg-green-700"
+              >
                 Submit
               </button>
             </div>
