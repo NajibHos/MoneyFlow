@@ -10,17 +10,20 @@ import AddIncome from "./pages/AddIncome";
 import AddSavings from "./pages/AddSavings";
 import TransactionHistory from "./pages/TransactionHistory";
 import Skeleton from "./components/Skeleton";
+import { ThemeProvider } from "./utils/ThemeProvider";
 
 const App = () => {
   return (
     <>
     <BrowserRouter>
+      <ThemeProvider>
       <AuthProvider>
       <Header />
       <main className="h-auto w-full">
         <AuthRoutes /> {/* Moved loading state inside here */}
       </main>
       </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
     </>
   )
