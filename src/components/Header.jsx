@@ -54,7 +54,7 @@ const Header = () => {
               <Link to='/sign-in'>
               <button 
                 className="hidden md:block
-                text-lg font-descriptions font-semibold cursor-pointer
+                text-lg font-descriptions font-medium cursor-pointer
                 text-zinc-900 dark:text-white hover:text-blue-600"
               >
                 Sign in
@@ -76,7 +76,7 @@ const Header = () => {
                 <Link to='/dashboard'>
                 <button
                   className="hidden md:block
-                  text-lg font-descriptions font-semibold cursor-pointer
+                  text-lg font-descriptions font-medium cursor-pointer
                   text-zinc-900 dark:text-white hover:text-blue-600">
                   Dashboard
                 </button>
@@ -93,7 +93,7 @@ const Header = () => {
                 <button
                   onClick={logOutUser}
                   className="hidden md:block
-                  text-lg font-descriptions font-semibold cursor-pointer
+                  text-lg font-descriptions font-medium cursor-pointer
                   text-zinc-900 dark:text-white hover:text-blue-600"
                 >
                   Sign Out
