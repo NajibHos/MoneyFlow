@@ -14,8 +14,7 @@ const Header = () => {
           <Link to='/'>
           <h2 className="text-3xl text-white font-semibold
            cursor-pointer font-headings">
-            Money
-          <span className="italic">Flow</span>
+            Moneyflow
           </h2>
           </Link>
         </div>
