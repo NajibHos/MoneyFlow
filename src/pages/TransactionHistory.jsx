@@ -2,21 +2,21 @@ import { useEffect, useState } from "react";
 import TransactionCards from "../components/TransactionCards"
 import { DatabaseID, databases, DBCollectionID } from "../appwrite/Appwrite";
 import { Query } from "appwrite";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Skeleton from "../components/Skeleton";
 
 const TransactionHistory = () => {
 
-  const [ loading, setLoading ] = useState(false);
   const location = useLocation();
   const { dataType } = location.state || {}; // Query for fetching data
   const [ transactions, setTransactions ] = useState([]);
-  const [dataLength, setDataLength] = [0];
+
+  useEffect(() => {
+    getTransactions();
+  }, [])
 
   //fetching transaction data
   const getTransactions = async () => {
-
-    setLoading(true);
 
     try {
       const data = await databases.listDocuments(
@@ -28,13 +28,9 @@ const TransactionHistory = () => {
       )
 
       setTransactions(data.documents);
-      setDataLength(data.total);
 
     } catch (error) {
       console.error('Fetching error ' + error.message);
-
-    } finally {
-      setLoading(false);
     }
 
   }
@@ -55,42 +51,50 @@ const TransactionHistory = () => {
     }
   }
 
-  useEffect(() => {
-    getTransactions();
-  }, [])
-
-  if (loading) {
-    return <Skeleton />
-  }
-
   return (
-    <div className={`lg:h-[90vh] lg:py-0 w-full flex justify-center
-     items-center ${dataLength < 3 ? 'h-[90vh]' : 'h-auto py-12'}`}>
-      <div className={`w-[90%] flex flex-col justify-start items-center gap-16
-        lg:gap-12 ${dataLength < 4 ? 'h-auto lg:h-[80%]' : 'h-auto'}`}>
-        <div className="h-auto w-full flex flex-col justify-center
-        items-center gap-4">
-          <div className="h-auto w-full text-center">
-            <h2 className="font-medium font-descriptions text-zinc-200
-              text-2xl">
-              Transaction History
-            </h2>
-          </div>
-          <div className="h-auto w-full text-center">
-            <Link to='/dashboard'>
-            <h2 className="font-medium font-descriptions text-zinc-200
-              text-base underline cursor-pointer">
-              Dashboard
-            </h2>
-            </Link>
-          </div>
+    <div className="h-[90vh] w-full py-12 flex justify-center items-start">
+      <div className="h-auto w-[90%] flex flex-col justify-center items-center gap-16 lg:gap-12">
+        <div className="h-auto w-full text-center">
+          <h2 className="text-2xl font-descriptions font-medium 
+            text-zinc-800 dark:text-zinc-200"
+          >
+            Transactions History
+          </h2>
         </div>
-        <div className="h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
-        gap-8">
+        {
+          // fallback UI
+          transactions?.length === 0 && <div 
+            className="h-auto w-full py-12 flex justify-center items-center"
+          >
+            <div className="h-auto w-full text-center">
+              <h2 className="text-lg font-descriptions font-medium text-red-600">
+                Please add transaction to continue
+              </h2>
+            </div>
+          </div>
+        }
+        {/* {
+          // loading UI
+          loading && <div 
+            className="h-auto w-full py-12 flex justify-center items-center"
+          >
+            <div className="h-auto w-full text-center">
+              <h2 className="text-lg font-descriptions font-medium
+                text-zinc-800 dark:text-zinc-200"
+              >
+                Fetching data..
+              </h2>
+            </div>
+          </div>
+        } */}
+        <div className="h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {
-            transactions.map((value, index) => {
+            transactions.map((data, i) => {
               return <TransactionCards
-              data={value} key={index} removeTransaction={removeTransaction} />
+                key={i} 
+                data={data}
+                removeTransaction={removeTransaction}
+              />
             })
           }
         </div>
