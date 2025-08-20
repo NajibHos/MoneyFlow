@@ -1,89 +1,117 @@
+import { useAuth } from "../utils/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Home = () => {
 
+  const { user } = useAuth();
+
   return (
-    <div className="h-[90vh] w-full flex
-     justify-center items-center">
-     <div className="h-[80%] w-[90%] md:max-2xl:w-[60%] flex flex-col
-      justify-center items-center gap-10 md:max-2xl:gap-8">
-
-       <div className="h-auto w-full text-center flex flex-col gap-4">
-          <h2 className="text-3xl text-white font-semibold
-           cursor-pointer font-headings">
-            Money
-            <span className="italic">Flow</span>
-          </h2>
-          <h2 className="font-medium font-descriptions text-zinc-200
-            text-lg">
-            Control Your Money, Control Your Future
-          </h2>
-       </div>
-
-       <div className="h-auto w-full text-left">
-         <p className="font-medium font-descriptions text-zinc-400
-         text-base">
-          MoneyFlow is a simple and intuitive income, expense, and savings tracker designed to help you manage your finances effortlessly. With an easy-to-use dashboard and clear financial insights, MoneyFlow empowers you to take control of your money and make smarter financial decisions.
-         </p>
-       </div>
-
-       <div className="h-auto w-full flex flex-col justify-start
-       items-start gap-4">
-
-        <div className="h-auto w-full text-left">
-          <h2 className="font-medium font-descriptions text-zinc-300
-          text-lg">
-          Technologies used:
-          </h2>
+    <div className="h-auto py-12 w-full flex justify-center items-center">
+      <div className="h-full w-[90%] lg:w-[60%] flex flex-col
+        justify-center items-center gap-6 lg:gap-8"
+      >
+        <div className="h-auto w-full flex flex-col justify-center
+          items-center gap-4"
+        >
+          <div className="h-auto w-full text-center">
+            <h2 className="text-3xl font-heading font-semibold
+              text-zinc-900 dark:text-white"
+            >
+              Moneyflow
+            </h2>
+          </div>
+          <div className="h-auto w-full text-center">
+            <h2 className="text-lg font-heading font-medium
+              text-zinc-700 dark:text-zinc-300"
+            >
+              From tasks to invoices, manage it all with ease
+            </h2>
+          </div>
         </div>
         <div className="h-auto w-full text-left">
-          <h2 className="font-medium font-descriptions text-zinc-400
-          text-base">
-          Front-end: <span className="font-medium font-descriptions
-          text-zinc-300">
-          React, Tailwind CSS, Daisy UI</span>
-          </h2>
+          <p className="text-base font-text font-medium
+            text-zinc-700 dark:text-zinc-300 whitespace-pre-wrap"
+          >
+            MoneyFlow is a simple and intuitive income, expense, and savings
+            tracker designed to help you manage your finances effortlessly.
+            With an easy-to-use dashboard and clear financial insights, MoneyFlow 
+            empowers you to take control of your money and make smarter financial decisions.
+          </p>
         </div>
-
         <div className="h-auto w-full text-left">
-          <h2 className="font-medium font-descriptions text-zinc-400
-          text-base">
-          Back-end: <span className="font-medium font-descriptions
-          text-zinc-300">
-          Appwrite (authentication and database)</span>
+          <h2 className="text-base font-text font-medium
+            text-zinc-700 dark:text-zinc-300"
+          >
+            Built with: <span className="text-zinc-900 dark:text-white">
+            React, Appwrite, Daisy UI, Tailwind CSS
+            </span>
           </h2>
         </div>
+        <div className="h-auto w-full flex flex-col justify-center
+          items-start gap-4"
+        >
+          <div className="h-auto w-full text-left">
+            <h2 className="text-base font-text font-medium
+              text-zinc-700 dark:text-zinc-300"
+            >
+              Features:
+            </h2>
+          </div>
+          <div className="h-auto w-full">
+            <ul className="h-auto w-full list-disc ml-4 text-left
+              text-zinc-900 dark:text-white"
+            >
+              <li>
+                <h2 className="text-base font-text font-medium
+                  text-zinc-900 dark:text-white"
+                >
+                  User authentication, CRUD operations, and real-time database
+                </h2>
+              </li>
+              <li>
+                <h2 className="text-base font-text font-medium
+                  text-zinc-900 dark:text-white"
+                >
+                  Manages income, expense, savings with real-time balance updates
+                </h2>
+              </li>
+              <li>
+                <h2 className="text-base font-text font-medium
+                  text-zinc-900 dark:text-white"
+                >
+                  Protected routes, responsive user-friendly Interface, and theme toggle
 
-        <div className="h-auto w-full text-left">
-          <h2 className="font-medium font-descriptions text-zinc-400
-          text-base">
-          Tools: <span className="font-medium font-descriptions
-          text-zinc-300">ChatGPT</span>
-          </h2>
+                </h2>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div className="h-auto w-full text-left">
-          <h2 className="font-medium font-descriptions text-zinc-400
-          text-base">
-          Deployment: <span className="font-medium font-descriptions
-          text-zinc-300">Vercel</span>
-          </h2>
-        </div>
-
-       </div>
-
-       <div className="h-auto w-full flex justify-center items-center">
-          <Link to='/sign-in'>
-          <button className="text-lg text-zinc-900
-            font-semibold cursor-pointer font-descriptions
-             px-4 py-2 bg-zinc-200 rounded-xl" type="button">
-            Visit App
-          </button>
-          </Link>
-       </div>
-
-     </div>
-   </div>
+        {
+          user && <div className="h-auto w-auto">
+            <Link to={'/dashboard'}>
+            <button
+              className="w-auto px-6 py-2 text-base font-text
+              font-medium rounded cursor-pointer text-zinc-900 bg-white"
+            >
+              Dashboard
+            </button>
+            </Link>
+          </div>
+        }
+        {
+          !user && <div className="h-auto w-auto">
+            <Link to={'/sign-in'}>
+            <button
+              className="w-auto px-6 py-2 text-base font-text
+              font-medium rounded cursor-pointer text-zinc-900 bg-white"
+            >
+              Get Started
+            </button>
+            </Link>
+          </div>
+        }
+      </div>
+    </div>
   )
 
 }
