@@ -98,7 +98,7 @@ const Home = () => {
             <Link to={'/dashboard'}>
             <button
               className="w-auto px-6 py-2 text-base font-text
-              font-medium rounded cursor-pointer text-zinc-900 bg-white"
+              font-medium rounded cursor-pointer text-white bg-blue-700"
             >
               Dashboard
             </button>
@@ -110,7 +110,7 @@ const Home = () => {
             <Link to={'/sign-in'}>
             <button
               className="w-auto px-6 py-2 text-base font-text
-              font-medium rounded cursor-pointer text-zinc-900 bg-white"
+              font-medium rounded cursor-pointer text-white bg-blue-700"
             >
               Get Started
             </button>
