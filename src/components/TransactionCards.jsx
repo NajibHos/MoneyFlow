@@ -38,7 +38,9 @@ const TransactionCards = ({ data, removeTransaction }) => {
       </div>
       <div className="h-auto w-full flex justify-between items-center">
           <div className="h-auto w-auto">
-            <h2 className="text-base text-zinc-200 font-descriptions font-medium">
+            <h2 className="text-base font-descriptions font-medium
+              text-zinc-700 dark:text-zinc-300"
+            >
               {data.date || 'Note Available'}
             </h2>
           </div>
