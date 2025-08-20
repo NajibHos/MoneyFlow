@@ -85,168 +85,169 @@ const Dashboard = () => {
 
 
   return (
-    <div className="h-auto py-12 lg:h-[90vh] lg:py-0 w-full flex justify-center
-     items-center">
-      <div className="h-auto w-[90%] flex flex-col justify-center
-       items-center gap-16 lg:gap-12">
+    <div className="h-auto w-full py-12 lg:h-[90vh] lg:py-0 flex justify-center items-center">
+      <div className="h-full w-[90%] flex flex-col justify-center
+        items-center gap-16 lg:gap-14"
+      >
         <div className="h-auto w-full text-center">
-          <h2 className="text-2xl font-medium font-descriptions
-          text-white">
+          <h2 className="text-2xl font-descriptions font-medium 
+            text-zinc-800 dark:text-zinc-200"
+          >
             Dashboard
           </h2>
         </div>
         <div className="h-auto w-full flex flex-col justify-center
-          items-center gap-2">
+          items-center gap-2"
+        >
             <div className="h-auto w-full text-left">
-              <h2 className="text-lg font-medium font-descriptions
-              text-zinc-400">
-              Welcome <span className="text-zinc-200">{userName}</span>
+              <h2 className="text-base font-descriptions font-medium
+                text-zinc-700 dark:text-zinc-300"
+              >
+                Welcome <span className="text-lg text-zinc-900 dark:text-white">{userName} ⚡</span>
               </h2>
             </div>
             <div className="h-auto w-full text-left">
-              <h2 className="text-lg font-medium font-descriptions
-              text-zinc-400">
-              Have a good day!
+              <h2 className="text-base font-descriptions font-medium
+                text-zinc-700 dark:text-zinc-300"
+              >
+                Have a good day!
               </h2>
             </div>
             <div className="h-auto w-full text-left">
-              <h2 className="text-lg font-medium font-descriptions
-              text-zinc-400">
-              Your remaining balance is <span className="text-green-600
-              text-xl">
-                { `${balance} BDT` }
+              <h2 className="text-base font-descriptions font-medium
+                text-zinc-700 dark:text-zinc-300"
+              >
+              Your remaining balance is: 
+              <span className="text-lg ml-1 text-green-600">
+                {`${balance} BDT`}
               </span>
               </h2>
             </div>
         </div>
-        <div className="h-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="h-[220px] w-full flex flex-col justify-start
-          items-center gap-8 border border-zinc-900 rounded">
-            <div className="h-[50px] w-full bg-zinc-900 rounded-tl
-            rounded-tr px-8 flex justify-start items-center">
-              <h2 className="text-lg font-medium font-descriptions
-              text-white">
+        <div className="h-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="h-auto w-full p-6 flex flex-col justify-center items-center gap-5
+            rounded bg-card-light dark:bg-card-dark"
+          >
+            <div className="h-auto w-full text-left">
+              <h2 className="text-base font-descriptions font-medium
+                text-zinc-700 dark:text-zinc-300"
+              >
                 Total Income
               </h2>
             </div>
-            <div className="h-auto w-full px-8 flex justify-start
-             items-center">
-              <h2 className="text-2xl font-medium font-descriptions
-              text-green-600">
-                + {funds[0].amount} BDT
+            <div className="h-auto w-full text-left">
+              <h2 className="text-lg font-descriptions font-medium
+                text-zinc-900 dark:text-white"
+              >
+                {`${funds[0].amount} BDT`}
               </h2>
             </div>
-            <div className="h-auto w-full px-8 flex justify-start
-             items-center gap-8">
+            <div className="h-auto w-full flex justify-start items-center gap-5">
               <div className="h-auto w-auto">
-                <button type="button" className="px-4 py-2 bg-green-600
-                text-base font-medium font-descriptions rounded
-                text-zinc-200 cursor-pointer"
-                onClick={() => {
-                  navigate('/add-income')
-                }}
+                <button
+                  onClick={() => navigate('/add-income')}
+                  className="px-4 py-2 text-base font-descriptions font-medium
+                  rounded cursor-pointer text-white bg-green-700"
                 >
                   Add Income
                 </button>
               </div>
               <div className="h-auto w-auto">
-                <button type="button" className="px-4 py-2 bg-zinc-200
-                text-base font-medium font-descriptions rounded
-                text-zinc-900 cursor-pointer"
-                onClick={() => {
-                  navigate(
-                    '/transaction-history',
-                    {state: {dataType: 'Income'}}
-                  )
-                }}
+                <button
+                  onClick={() => {
+                    navigate(
+                      '/transaction-history',
+                      {state: {dataType: 'Income'}}
+                    )
+                  }}
+                  className="px-4 py-2 text-base font-descriptions font-medium
+                  rounded cursor-pointer text-white bg-stone-600"
                 >
                   History
                 </button>
               </div>
             </div>
           </div>
-          <div className="h-[220px] w-full flex flex-col justify-start
-          items-center gap-8 border border-zinc-900 rounded">
-            <div className="h-[50px] w-full bg-zinc-900 rounded-tl
-            rounded-tr px-8 flex justify-start items-center">
-              <h2 className="text-lg font-medium font-descriptions
-              text-white">
+          <div className="h-auto w-full p-6 flex flex-col justify-center items-center gap-5
+            rounded bg-card-light dark:bg-card-dark"
+          >
+            <div className="h-auto w-full text-left">
+              <h2 className="text-base font-descriptions font-medium
+                text-zinc-700 dark:text-zinc-300"
+              >
                 Total Expense
               </h2>
             </div>
-            <div className="h-auto w-full px-8 flex justify-start
-             items-center">
-              <h2 className="text-2xl font-medium font-descriptions
-              text-red-600">
-                - {funds[1].amount} BDT
+            <div className="h-auto w-full text-left">
+              <h2 className="text-lg font-descriptions font-medium
+                text-zinc-900 dark:text-white"
+              >
+                {`${funds[1].amount} BDT`}
               </h2>
             </div>
-            <div className="h-auto w-full px-8 flex
-             justify-start items-center gap-8">
-              <div className="h-auto w-auto ">
-                <button type="button" className="px-4 py-2 bg-red-600
-                text-base font-medium font-descriptions rounded
-                text-zinc-200 cursor-pointer"
-                onClick={() => {
-                  navigate('/add-expense')
-                }}>
+            <div className="h-auto w-full flex justify-start items-center gap-5">
+              <div className="h-auto w-auto">
+                <button
+                  onClick={() => navigate('/add-expense')}
+                  className="px-4 py-2 text-base font-descriptions font-medium
+                  rounded cursor-pointer text-white bg-red-700"
+                >
                   Add Expense
                 </button>
               </div>
               <div className="h-auto w-auto">
-                <button type="button" className="px-4 py-2 bg-zinc-200
-                text-base font-medium font-descriptions rounded
-                text-zinc-900 cursor-pointer"
-                onClick={() => {
-                  navigate(
-                    '/transaction-history',
-                    {state: {dataType: 'Expense'}}
-                  )
-                }}
+                <button
+                  onClick={() => {
+                    navigate(
+                      '/transaction-history',
+                      {state: {dataType: 'Expense'}}
+                    )
+                  }}
+                  className="px-4 py-2 text-base font-descriptions font-medium
+                  rounded cursor-pointer text-white bg-stone-600"
                 >
                   History
                 </button>
               </div>
             </div>
           </div>
-          <div className="h-[220px] w-full flex flex-col justify-start
-          items-center gap-8 border border-zinc-900 rounded">
-            <div className="h-[50px] w-full bg-zinc-900 rounded-tl
-            rounded-tr px-8 flex justify-start items-center">
-              <h2 className="text-lg font-medium font-descriptions
-              text-white">
+          <div className="h-auto w-full p-6 flex flex-col justify-center items-center gap-5
+            rounded bg-card-light dark:bg-card-dark"
+          >
+            <div className="h-auto w-full text-left">
+              <h2 className="text-base font-descriptions font-medium
+                text-zinc-700 dark:text-zinc-300"
+              >
                 Total Savings
               </h2>
             </div>
-            <div className="h-auto w-full px-8 flex justify-start
-             items-center">
-              <h2 className="text-2xl font-medium font-descriptions
-              text-blue-600">
-                + {funds[2].amount} BDT
+            <div className="h-auto w-full text-left">
+              <h2 className="text-lg font-descriptions font-medium
+                text-zinc-900 dark:text-white"
+              >
+                {`${funds[2].amount} BDT`}
               </h2>
             </div>
-            <div className="h-auto w-full px-8 flex justify-start
-             items-center gap-8">
+            <div className="h-auto w-full flex justify-start items-center gap-5">
               <div className="h-auto w-auto">
-                <button type="button" className="px-4 py-2 bg-blue-600
-                text-base font-medium font-descriptions rounded
-                text-zinc-200 cursor-pointer"
-                onClick={() => {
-                  navigate('/add-savings')
-                }}>
+                <button
+                  onClick={() => navigate('/add-savings')}
+                  className="px-4 py-2 text-base font-descriptions font-medium
+                  rounded cursor-pointer text-white bg-blue-700"
+                >
                   Add Savings
                 </button>
               </div>
               <div className="h-auto w-auto">
-                <button type="button" className="px-4 py-2 bg-zinc-200
-                text-base font-medium font-descriptions rounded
-                text-zinc-900 cursor-pointer"
-                onClick={() => {
-                  navigate(
-                    '/transaction-history',
-                    {state: {dataType: 'Savings'}}
-                  )
-                }}
+                <button
+                  onClick={() => {
+                    navigate(
+                      '/transaction-history',
+                      {state: {dataType: 'Savings'}}
+                    )
+                  }}
+                  className="px-4 py-2 text-base font-descriptions font-medium
+                  rounded cursor-pointer text-white bg-stone-600"
                 >
                   History
                 </button>
