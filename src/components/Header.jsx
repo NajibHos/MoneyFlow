@@ -21,7 +21,7 @@ const Header = () => {
           </h2>
           </Link>
         </div>
-        <div className="h-auto w-[40%] flex justify-end items-center gap-5 md:gap-5">
+        <div className="h-auto w-[40%] flex justify-end items-center gap-5 md:gap-4">
           {
             theme === 'light' && <button 
               onClick={toggleTheme}
