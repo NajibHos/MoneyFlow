@@ -12,28 +12,22 @@ const SignIn = () => {
   const { isPending } = useFormStatus();
 
   useEffect(() => {
-
-    //if user is available then navigate user to dashboard
+    // if user is available, navigate user to dashboard
     if (user) {
       navigate('/dashboard');
     }
-
   }, [user])
 
   async function formAction(formData) {
-
     const email = formData.get('email');
-    const password = formData.get('password');
+    const password = formData.get('password'); 
 
-    const userInfo = { email, password }
-
-    await logInUser(userInfo);
-
+    await logInUser({ email, password });
   }
 
   return (
     <div className="h-[90vh] w-full flex justify-center items-center">
-      <div className="h-full w-[90%] flex flex-col justify-center
+      <div className="h-[80%] lg:h-full w-[90%] flex flex-col justify-center
         items-center gap-16 lg:gap-12"
       >
         <div className="h-auto w-full flex flex-col justify-center items-center gap-4">
@@ -122,7 +116,7 @@ const SignIn = () => {
                 className="w-full py-2 text-base font-descriptions font-medium  
                 rounded cursor-pointer text-white bg-blue-600 disabled:bg-blue-500"
               >
-                {isPending ? 'Submitting' : 'Submit'}
+                {isPending ? 'Signing In...' : 'Sign In'}
               </button>
             </div>
           </form>
