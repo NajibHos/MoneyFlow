@@ -11,7 +11,7 @@ const Home = () => {
         justify-center items-center gap-6 lg:gap-8"
       >
         <div className="h-auto w-full flex flex-col justify-center
-          items-center gap-4"
+          items-center gap-2"
         >
           <div className="h-auto w-full text-center">
             <h2 className="text-3xl font-heading font-semibold
@@ -24,7 +24,7 @@ const Home = () => {
             <h2 className="text-lg font-heading font-medium
               text-zinc-700 dark:text-zinc-300"
             >
-              From tasks to invoices, manage it all with ease
+              Control your money wisely
             </h2>
           </div>
         </div>
