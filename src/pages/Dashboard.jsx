@@ -103,7 +103,7 @@ const Dashboard = () => {
               <h2 className="text-base font-descriptions font-medium
                 text-zinc-700 dark:text-zinc-300"
               >
-                Welcome <span className="text-lg text-zinc-900 dark:text-white">{userName} ⚡</span>
+                Welcome <span className="text-zinc-900 dark:text-white">{userName} ⚡</span>
               </h2>
             </div>
             <div className="h-auto w-full text-left">
@@ -137,9 +137,9 @@ const Dashboard = () => {
             </div>
             <div className="h-auto w-full text-left">
               <h2 className="text-lg font-descriptions font-medium
-                text-zinc-900 dark:text-white"
+                text-green-600 dark:text-white"
               >
-                {`${funds[0].amount} BDT`}
+                {`+ ${funds[0].amount} BDT`}
               </h2>
             </div>
             <div className="h-auto w-full flex justify-start items-center gap-5">
@@ -180,9 +180,9 @@ const Dashboard = () => {
             </div>
             <div className="h-auto w-full text-left">
               <h2 className="text-lg font-descriptions font-medium
-                text-zinc-900 dark:text-white"
+                text-red-600 dark:text-white"
               >
-                {`${funds[1].amount} BDT`}
+                {`- ${funds[1].amount} BDT`}
               </h2>
             </div>
             <div className="h-auto w-full flex justify-start items-center gap-5">
@@ -223,9 +223,9 @@ const Dashboard = () => {
             </div>
             <div className="h-auto w-full text-left">
               <h2 className="text-lg font-descriptions font-medium
-                text-zinc-900 dark:text-white"
+                text-blue-600 dark:text-white"
               >
-                {`${funds[2].amount} BDT`}
+                {`+ ${funds[2].amount} BDT`}
               </h2>
             </div>
             <div className="h-auto w-full flex justify-start items-center gap-5">
