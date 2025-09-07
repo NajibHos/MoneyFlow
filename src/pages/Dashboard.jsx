@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { DatabaseID, databases, DBCollectionID } from "../appwrite/Appwrite";
 import { useAuth } from "../utils/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import Skeleton from "../components/Skeleton";
 
 const Dashboard = () => {
 
-  const [ loading, setLoading ] = useState(false);
-  const [ transactions, setTransactions ] = useState([]);
-  const { userName } = useAuth();
+  const [transactions, setTransactions] = useState([]);
+  const { user, userName } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getTransactions();
+  }, [user])
 
   //transaction amount and type for tracking total transactions amount
   const funds = [
@@ -29,9 +31,6 @@ const Dashboard = () => {
 
   //fetching transaction data
   const getTransactions = async () => {
-
-    setLoading(true);
-
     try {
       const data = await databases.listDocuments(
         DatabaseID,
@@ -42,17 +41,8 @@ const Dashboard = () => {
 
     } catch (error) {
       console.error("Fetching error " + error.message);
-    } finally {
-      setLoading(false);
     }
-
   }
-
-  useEffect(() => {
-
-    getTransactions();
-
-  }, [])
 
   //re-assigning transaction amount variables
   transactions.forEach(( value ) => {
@@ -75,14 +65,8 @@ const Dashboard = () => {
 
   });
 
-  //available balance
+  // available balance
   let balance = funds[0].amount - (funds[1].amount + funds[2].amount);
-
-
-  if (loading) {
-    return <Skeleton />
-  }
-
 
   return (
     <div className="h-auto w-full py-12 lg:h-[90vh] lg:py-0 flex justify-center items-center">
@@ -99,30 +83,34 @@ const Dashboard = () => {
         <div className="h-auto w-full flex flex-col justify-center
           items-center gap-2"
         >
-            <div className="h-auto w-full text-left">
-              <h2 className="text-base font-descriptions font-medium
-                text-zinc-700 dark:text-zinc-300"
-              >
-                Welcome <span className="text-zinc-900 dark:text-white">{userName} ⚡</span>
-              </h2>
-            </div>
-            <div className="h-auto w-full text-left">
-              <h2 className="text-base font-descriptions font-medium
-                text-zinc-700 dark:text-zinc-300"
-              >
-                Have a good day!
-              </h2>
-            </div>
-            <div className="h-auto w-full text-left">
-              <h2 className="text-base font-descriptions font-medium
-                text-zinc-700 dark:text-zinc-300"
-              >
+          <div className="h-auto w-full text-left">
+            <h2 className="text-base font-descriptions font-medium
+              text-zinc-700 dark:text-zinc-300"
+            >
+              Welcome <span 
+                className="text-zinc-900 dark:text-white"
+                >
+                  {userName || null}
+                </span>
+            </h2>
+          </div>
+          <div className="h-auto w-full text-left">
+            <h2 className="text-base font-descriptions font-medium
+              text-zinc-700 dark:text-zinc-300"
+            >
+              Have a good day!
+            </h2>
+          </div>
+          <div className="h-auto w-full text-left">
+            <h2 className="text-base font-descriptions font-medium
+              text-zinc-700 dark:text-zinc-300"
+            >
               Your remaining balance is: 
               <span className="text-lg ml-1 text-green-600">
-                {`${balance} BDT`}
+                {`${balance || 0} BDT`}
               </span>
-              </h2>
-            </div>
+            </h2>
+          </div>
         </div>
         <div className="h-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="h-auto w-full p-6 flex flex-col justify-center items-center gap-5
@@ -136,17 +124,17 @@ const Dashboard = () => {
               </h2>
             </div>
             <div className="h-auto w-full text-left">
-              <h2 className="text-lg font-descriptions font-medium
+              <h2 className="text-xl font-descriptions font-medium
                 text-green-600 dark:text-white"
               >
-                {`+ ${funds[0].amount} BDT`}
+                {`+ ${funds[0].amount || 0} BDT`}
               </h2>
             </div>
             <div className="h-auto w-full flex justify-start items-center gap-5">
               <div className="h-auto w-auto">
                 <button
                   onClick={() => navigate('/add-income')}
-                  className="px-4 py-2 text-base font-descriptions font-medium
+                  className="px-3 py-1 text-base font-descriptions font-medium
                   rounded cursor-pointer text-white bg-green-700"
                 >
                   Add Income
@@ -160,7 +148,7 @@ const Dashboard = () => {
                       {state: {dataType: 'Income'}}
                     )
                   }}
-                  className="px-4 py-2 text-base font-descriptions font-medium
+                  className="px-3 py-1 text-base font-descriptions font-medium
                   rounded cursor-pointer text-white bg-stone-600"
                 >
                   History
@@ -179,17 +167,17 @@ const Dashboard = () => {
               </h2>
             </div>
             <div className="h-auto w-full text-left">
-              <h2 className="text-lg font-descriptions font-medium
+              <h2 className="text-xl font-descriptions font-medium
                 text-red-600 dark:text-white"
               >
-                {`- ${funds[1].amount} BDT`}
+                {`- ${funds[1].amount || 0} BDT`}
               </h2>
             </div>
             <div className="h-auto w-full flex justify-start items-center gap-5">
               <div className="h-auto w-auto">
                 <button
                   onClick={() => navigate('/add-expense')}
-                  className="px-4 py-2 text-base font-descriptions font-medium
+                  className="px-3 py-1 text-base font-descriptions font-medium
                   rounded cursor-pointer text-white bg-red-700"
                 >
                   Add Expense
@@ -203,7 +191,7 @@ const Dashboard = () => {
                       {state: {dataType: 'Expense'}}
                     )
                   }}
-                  className="px-4 py-2 text-base font-descriptions font-medium
+                  className="px-3 py-1 text-base font-descriptions font-medium
                   rounded cursor-pointer text-white bg-stone-600"
                 >
                   History
@@ -222,17 +210,17 @@ const Dashboard = () => {
               </h2>
             </div>
             <div className="h-auto w-full text-left">
-              <h2 className="text-lg font-descriptions font-medium
+              <h2 className="text-xl font-descriptions font-medium
                 text-blue-600 dark:text-white"
               >
-                {`+ ${funds[2].amount} BDT`}
+                {`+ ${funds[2].amount || 0} BDT`}
               </h2>
             </div>
             <div className="h-auto w-full flex justify-start items-center gap-5">
               <div className="h-auto w-auto">
                 <button
                   onClick={() => navigate('/add-savings')}
-                  className="px-4 py-2 text-base font-descriptions font-medium
+                  className="px-3 py-1 text-base font-descriptions font-medium
                   rounded cursor-pointer text-white bg-blue-700"
                 >
                   Add Savings
@@ -246,7 +234,7 @@ const Dashboard = () => {
                       {state: {dataType: 'Savings'}}
                     )
                   }}
-                  className="px-4 py-2 text-base font-descriptions font-medium
+                  className="px-3 py-1 text-base font-descriptions font-medium
                   rounded cursor-pointer text-white bg-stone-600"
                 >
                   History
