@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider, useAuth } from "./utils/AuthProvider";
+import { ThemeProvider } from "./utils/ThemeProvider";
 import PrivateRoute from "./utils/PrivateRoute";
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -9,8 +10,7 @@ import AddExpense from "./pages/AddExpense";
 import AddIncome from "./pages/AddIncome";
 import AddSavings from "./pages/AddSavings";
 import TransactionHistory from "./pages/TransactionHistory";
-import Skeleton from "./components/Skeleton";
-import { ThemeProvider } from "./utils/ThemeProvider";
+import Loading from "./components/Loading";
 
 const App = () => {
   return (
@@ -38,7 +38,7 @@ const AuthRoutes = () => {
 
     return (
       <>
-      <Skeleton />
+      <Loading />
       </>
     )
   }
