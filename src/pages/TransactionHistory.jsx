@@ -3,13 +3,16 @@ import TransactionCards from "../components/TransactionCards"
 import { DatabaseID, databases, DBCollectionID } from "../appwrite/Appwrite";
 import { Query } from "appwrite";
 import { useLocation } from "react-router-dom";
-import Skeleton from "../components/Skeleton";
 
 const TransactionHistory = () => {
 
+  // loading state
+  const [loading, setLoading] = useState(false);
+
+  // get query from useLocation hook
   const location = useLocation();
   const { dataType } = location.state || {}; // Query for fetching data
-  const [ transactions, setTransactions ] = useState([]);
+  const [ transactions, setTransactions ] = useState(null);
 
   useEffect(() => {
     getTransactions();
@@ -17,6 +20,7 @@ const TransactionHistory = () => {
 
   //fetching transaction data
   const getTransactions = async () => {
+    setLoading(true);
 
     try {
       const data = await databases.listDocuments(
@@ -30,7 +34,9 @@ const TransactionHistory = () => {
       setTransactions(data.documents);
 
     } catch (error) {
-      console.error('Fetching error ' + error.message);
+      console.error('Error fething transactions: ' + error.message);
+    } finally {
+      setLoading(false);
     }
 
   }
@@ -63,7 +69,7 @@ const TransactionHistory = () => {
         </div>
         {
           // fallback UI
-          transactions?.length === 0 && <div 
+          transactions?.length < 1 && <div 
             className="h-auto w-full py-12 flex justify-center items-center"
           >
             <div className="h-auto w-full text-center">
@@ -73,23 +79,17 @@ const TransactionHistory = () => {
             </div>
           </div>
         }
-        {/* {
+        {
           // loading UI
           loading && <div 
             className="h-auto w-full py-12 flex justify-center items-center"
           >
-            <div className="h-auto w-full text-center">
-              <h2 className="text-lg font-descriptions font-medium
-                text-zinc-800 dark:text-zinc-200"
-              >
-                Fetching data..
-              </h2>
-            </div>
+            <span className="loading loading-dots loading-xl bg-zinc-900 dark:bg-white"></span>
           </div>
-        } */}
+        }
         <div className="h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {
-            transactions.map((data, i) => {
+            transactions?.map((data, i) => {
               return <TransactionCards
                 key={i} 
                 data={data}
