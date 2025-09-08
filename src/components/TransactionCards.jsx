@@ -27,7 +27,7 @@ const TransactionCards = ({ data, removeTransaction }) => {
         </div>
       </div>
       <div className="h-auto w-full text-left">
-        <h2 className={`text-base font-descriptions font-medium
+        <h2 className={`text-lg font-descriptions font-medium
           ${data.type === 'Income' && 'text-green-600'}
           ${data.type === 'Expense' && 'text-red-600'}
           ${data.type === 'Savings' && 'text-blue-600'}
