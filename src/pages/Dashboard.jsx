@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
 
   const [transactions, setTransactions] = useState([]);
-  const { user, userName } = useAuth();
+  const { userName } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     getTransactions();
-  }, [user])
+  }, [])
 
   //transaction amount and type for tracking total transactions amount
   const funds = [
@@ -125,7 +125,7 @@ const Dashboard = () => {
             </div>
             <div className="h-auto w-full text-left">
               <h2 className="text-xl font-descriptions font-medium
-                text-green-600 dark:text-white"
+                text-green-600"
               >
                 {`+ ${funds[0].amount || 0} BDT`}
               </h2>
@@ -168,7 +168,7 @@ const Dashboard = () => {
             </div>
             <div className="h-auto w-full text-left">
               <h2 className="text-xl font-descriptions font-medium
-                text-red-600 dark:text-white"
+                text-red-600"
               >
                 {`- ${funds[1].amount || 0} BDT`}
               </h2>
@@ -211,7 +211,7 @@ const Dashboard = () => {
             </div>
             <div className="h-auto w-full text-left">
               <h2 className="text-xl font-descriptions font-medium
-                text-blue-600 dark:text-white"
+                text-blue-600"
               >
                 {`+ ${funds[2].amount || 0} BDT`}
               </h2>
