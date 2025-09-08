@@ -82,7 +82,7 @@ const TransactionHistory = () => {
         {
           // loading UI
           loading && <div 
-            className="h-auto w-full py-12 flex justify-center items-center"
+            className="h-auto w-full py-8 flex justify-center items-center"
           >
             <span className="loading loading-dots loading-xl bg-zinc-900 dark:bg-white"></span>
           </div>
