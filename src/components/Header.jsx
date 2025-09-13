@@ -20,9 +20,9 @@ const Header = () => {
           </h2>
           </Link>
         </div>
-        <div className="h-auto w-auto flex justify-end-safe items-center gap-5">
+        <div className="h-auto w-auto flex justify-end-safe items-center gap-6">
           {
-            theme === 'light' && <button 
+            theme === 'light' && <button
               onClick={toggleTheme}
               className="cursor-pointer text-zinc-900"
             >
@@ -30,7 +30,7 @@ const Header = () => {
             </button>
           }
           {
-            theme === 'dark' && <button 
+            theme === 'dark' && <button
               onClick={toggleTheme}
               className="cursor-pointer text-white"
             >
@@ -38,23 +38,22 @@ const Header = () => {
             </button>
           }
           {
-            !user && <> 
-              <div className="h-auto w-auto">
+            !user && <>
+              <div className="h-auto w-auto block md:hidden">
                 <Link to='/sign-in'>
-                <button 
-                  className="block md:hidden cursor-pointer text-zinc-900 
-                  dark:text-white hover:text-blue-600"
+                <button
+                  className="flex justify-center items-center cursor-pointer
+                  text-zinc-900 dark:text-white hover:text-blue-600"
                 >
                   <LogIn size={22} />
                 </button>
                 </Link>
               </div>
 
-              <div className="h-auto w-auto">
+              <div className="h-auto w-auto hidden md:block">
                 <Link to='/sign-in'>
-                <button 
-                  className="hidden md:block
-                  text-lg font-descriptions font-medium cursor-pointer
+                <button
+                  className="text-lg font-headings font-medium cursor-pointer
                   text-zinc-900 dark:text-white hover:text-blue-600"
                 >
                   Sign in
@@ -62,35 +61,36 @@ const Header = () => {
                 </Link>
               </div>
             </>
-          } 
+          }
           {
             user && <>
-              <div className="h-auto w-auto">
+              <div className="h-auto w-auto block md:hidden">
                 <Link to='/dashboard'>
                 <button
-                  className="block md:hidden 
-                  cursor-pointer text-zinc-900 dark:text-white hover:text-blue-600"
+                  className="flex justify-center items-center
+                  cursor-pointer text-zinc-900 dark:text-white
+                  hover:text-blue-600"
                 >
                   <House size={22} />
                 </button>
                 </Link>
               </div>
-               
-              <div className="h-auto w-auto">
+
+              <div className="h-auto w-auto hidden md:block">
                 <Link to='/dashboard'>
                 <button
-                  className="hidden md:block
-                  text-lg font-descriptions font-medium cursor-pointer
+                  className="text-lg font-headings font-medium cursor-pointer
                   text-zinc-900 dark:text-white hover:text-blue-600"
                 >
                   Dashboard
                 </button>
                 </Link>
               </div>
-                
-              <div className="h-auto w-auto">
-                <button 
-                  className="block md:hidden cursor-pointer text-zinc-900 
+
+              <div className="h-auto w-auto block md:hidden">
+                <button
+                  className="flex justify-center items-center
+                  cursor-pointer text-zinc-900
                   dark:text-white hover:text-blue-600"
                   onClick={logOutUser}
                 >
@@ -98,11 +98,10 @@ const Header = () => {
                 </button>
               </div>
 
-              <div className="h-auto w-auto">
+              <div className="h-auto w-auto hidden md:block">
                 <button
                   onClick={logOutUser}
-                  className="hidden md:block
-                  text-lg font-descriptions font-medium cursor-pointer
+                  className="text-lg font-headings font-medium cursor-pointer
                   text-zinc-900 dark:text-white hover:text-blue-600"
                 >
                   Sign Out
