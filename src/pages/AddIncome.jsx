@@ -70,9 +70,9 @@ const AddIncome = () => {
         items-center gap-16 lg:gap-14"
       >
         {
-          status === 'Success' 
-          ? <Toast data={toastDataSuccess} /> 
-          : status === 'Failed' 
+          status === 'Success'
+          ? <Toast data={toastDataSuccess} />
+          : status === 'Failed'
           ? <Toast data={toastDataFailed}/> : ''
         }
         <div className="h-auto w-full flex flex-col justify-center
@@ -99,8 +99,10 @@ const AddIncome = () => {
             </h2>
           </div>
         </div>
-        <div className="h-auto w-full md:w-[60%] lg:w-[50%] flex justify-center items-center">
-          <form 
+        <div className="h-auto w-full md:w-[60%] lg:w-[50%] flex justify-center
+          items-center"
+        >
+          <form
             action={formAction}
             className="h-auto w-full flex flex-col justify-center
             items-center gap-8"
@@ -109,20 +111,20 @@ const AddIncome = () => {
               items-center gap-2"
             >
               <div className="h-auto w-full text-left">
-                <h2 className="text-base font-medium font-descriptions 
+                <h2 className="text-base font-medium font-descriptions
                   text-zinc-700 dark:text-zinc-300"
                 >
                   Income Type*
                 </h2>
               </div>
               <div className="h-auto w-full">
-                <input 
+                <input
                   type="text"
                   name="name"
                   required
                   placeholder="type here"
                   className="input w-full text-base font-descriptions font-medium
-                  text-zinc-900 dark:text-white bg-transparent border 
+                  text-zinc-900 dark:text-white bg-transparent border
                   border-zinc-300 dark:border-zinc-400"
                 />
               </div>
@@ -131,20 +133,20 @@ const AddIncome = () => {
               items-center gap-2"
             >
               <div className="h-auto w-full text-left">
-                <h2 className="text-base font-medium font-descriptions 
+                <h2 className="text-base font-medium font-descriptions
                   text-zinc-700 dark:text-zinc-300"
                 >
                   Amount*
                 </h2>
               </div>
               <div className="h-auto w-full">
-                <input 
+                <input
                   type="number"
                   name="amount"
-                  required 
+                  required
                   placeholder="type here"
                   className="input w-full text-base font-descriptions font-medium
-                  text-zinc-900 dark:text-white bg-transparent border 
+                  text-zinc-900 dark:text-white bg-transparent border
                   border-zinc-300 dark:border-zinc-400"
                 />
               </div>
@@ -153,30 +155,30 @@ const AddIncome = () => {
               items-center gap-2"
             >
               <div className="h-auto w-full text-left">
-                <h2 className="text-base font-medium font-descriptions 
+                <h2 className="text-base font-medium font-descriptions
                   text-zinc-700 dark:text-zinc-300"
                 >
                   Date*
                 </h2>
               </div>
               <div className="h-auto w-full">
-                <input 
+                <input
                   type="date"
                   name="date"
                   required
                   className="input w-full text-base font-descriptions font-medium
-                  text-zinc-900 dark:text-white bg-transparent border 
+                  text-zinc-900 dark:text-white bg-transparent border
                   border-zinc-300 dark:border-zinc-400"
                 />
               </div>
             </div>
             <div className="h-auto w-full mt-2">
-              <button 
+              <button
                 type="submit"
-                className="w-full py-2 text-base font-descriptions font-medium  
+                className="w-full py-2 text-base font-descriptions font-medium
                 rounded cursor-pointer text-white bg-green-700"
               >
-                Submit
+                Add
               </button>
             </div>
           </form>
