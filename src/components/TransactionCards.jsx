@@ -1,3 +1,4 @@
+import { format } from "date-fns"
 
 const TransactionCards = ({ data, removeTransaction }) => {
 
@@ -6,23 +7,23 @@ const TransactionCards = ({ data, removeTransaction }) => {
       gap-4 rounded bg-card-light dark:bg-card-dark"
     >
       <div className="h-auto w-full flex justify-between items-center">
-        <div className="h-auto w-[70%] text-left">
-        <h2 className="text-lg font-descriptions font-medium
+        <div className="h-auto w-auto text-left">
+        <h2 className="text-lg font-headings font-medium
           truncate text-zinc-700 dark:text-zinc-200"
         >
           {data.name || 'Not Available'}
         </h2>
         </div>
-        <div className="h-auto w-[20%] text-right">
+        <div className="h-auto w-auto text-right">
           <div className="h-auto w-auto">
-            <h2 className={`text-base font-descriptions font-medium
-              ${data.type === 'Income' && 'text-green-600'} 
-              ${data.type === 'Expense' && 'text-red-600'} 
-              ${data.type === 'Savings' && 'text-blue-600'} 
+            <div className={`badge badge-dash text-base font-descriptions font-medium
+              ${data.type === 'Income' && 'text-green-600'}
+              ${data.type === 'Expense' && 'text-red-600'}
+              ${data.type === 'Savings' && 'text-blue-600'}
               `}
             >
               {data.type || 'Note Available'}
-            </h2>
+            </div>
           </div>
         </div>
       </div>
@@ -41,13 +42,15 @@ const TransactionCards = ({ data, removeTransaction }) => {
             <h2 className="text-base font-descriptions font-medium
               text-zinc-700 dark:text-zinc-300"
             >
-              {data.date || 'Note Available'}
+              {
+                format(new Date(data.date), 'dd MMM yyyy') || 'Not Available'
+              }
             </h2>
           </div>
           <div className="h-auto w-auto">
-            <button 
-              onClick={() => removeTransaction(data.$id)} 
-              className="px-3 py-1 text-base font-descriptions font-medium 
+            <button
+              onClick={() => removeTransaction(data.$id)}
+              className="px-3 py-1 text-base font-descriptions font-medium
               rounded cursor-pointer text-white bg-red-600"
             >
               Remove
