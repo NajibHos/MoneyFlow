@@ -27,11 +27,12 @@ const TransactionHistory = () => {
         DatabaseID,
         DBCollectionID,
         [
-          Query.equal('type', dataType)
+          Query.equal('type', dataType), // filter data based on type
+          Query.orderDesc('$createdAt') // fetch the latest transaction first
         ]
       )
 
-      setTransactions(data.documents);
+      setTransactions(data.documents); // set the transaction data
 
     } catch (error) {
       console.error('Error fething transactions: ' + error.message);
@@ -59,9 +60,11 @@ const TransactionHistory = () => {
 
   return (
     <div className="h-[90vh] w-full py-12 flex justify-center items-start">
-      <div className="h-auto w-[90%] flex flex-col justify-center items-center gap-16 lg:gap-12">
+      <div className="h-auto w-[90%] flex flex-col justify-center items-center
+        gap-16 lg:gap-12"
+      >
         <div className="h-auto w-full text-center">
-          <h2 className="text-2xl font-descriptions font-medium 
+          <h2 className="text-2xl font-headings font-medium
             text-zinc-800 dark:text-zinc-200"
           >
             Transactions History
@@ -69,35 +72,47 @@ const TransactionHistory = () => {
         </div>
         {
           // fallback UI
-          transactions?.length < 1 && <div 
-            className="h-auto w-full py-12 flex justify-center items-center"
-          >
-            <div className="h-auto w-full text-center">
-              <h2 className="text-lg font-descriptions font-medium text-red-600">
-                Please add transaction to continue
-              </h2>
+          transactions?.length === 0 && <>
+            <div
+              className="h-auto w-full py-12 flex justify-center items-center"
+            >
+              <div className="h-auto w-full text-center">
+                <h2 className="text-lg font-headings font-medium text-red-600">
+                  Please add transaction to continue
+                </h2>
+              </div>
             </div>
-          </div>
+          </>
         }
         {
           // loading UI
-          loading && <div 
-            className="h-auto w-full py-8 flex justify-center items-center"
-          >
-            <span className="loading loading-dots loading-xl bg-zinc-900 dark:bg-white"></span>
-          </div>
+          loading && <>
+            <div
+              className="h-auto w-full py-8 flex justify-center items-center"
+            >
+              <span className="loading loading-dots loading-xl bg-zinc-900
+                dark:bg-white"></span>
+            </div>
+          </>
         }
-        <div className="h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {
-            transactions?.map((data, i) => {
-              return <TransactionCards
-                key={i} 
-                data={data}
-                removeTransaction={removeTransaction}
-              />
-            })
-          }
-        </div>
+        {
+          // transaction cards
+          transactions?.length > 0 && !loading && <>
+            <div className="h-auto w-full grid grid-cols-1 md:grid-cols-2
+              lg:grid-cols-3  gap-8"
+            >
+              {
+                transactions?.map((data, i) => {
+                  return <TransactionCards
+                    key={i}
+                    data={data}
+                    removeTransaction={removeTransaction}
+                  />
+                })
+              }
+            </div>
+          </>
+        }
       </div>
     </div>
   )
