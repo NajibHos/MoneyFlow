@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
 
-  const { user, userName } = useAuth();
+  const { userName } = useAuth();
   const [transactions, setTransactions] = useState([]);
   const navigate = useNavigate();
   // transaction amount references
