@@ -24,7 +24,7 @@ const Home = () => {
             <h2 className="text-lg font-heading font-medium
               text-zinc-700 dark:text-zinc-300"
             >
-              Control your money wisely
+              Control your money wisely.
             </h2>
           </div>
         </div>
@@ -34,11 +34,14 @@ const Home = () => {
           >
             MoneyFlow is a simple and intuitive income, expense, and savings
             tracker designed to help you manage your finances effortlessly.
-            With an easy-to-use dashboard and clear financial insights, MoneyFlow 
-            empowers you to take control of your money and make smarter financial decisions.
+            With an easy-to-use dashboard and clear financial insights,
+            MoneyFlow empowers you to take control of your money and make
+            smarter financial decisions.
           </p>
         </div>
-        <div className="h-auto w-full flex flex-col justify-center items-center gap-2">
+        <div className="h-auto w-full flex flex-col justify-center
+          items-center gap-2"
+        >
           <div className="h-auto w-full text-left">
             <h2 className="text-base font-text font-medium
               text-zinc-700 dark:text-zinc-300"
@@ -72,21 +75,23 @@ const Home = () => {
                 <h2 className="text-base font-text font-medium
                   text-zinc-900 dark:text-white"
                 >
-                  User authentication, CRUD operations, and real-time database
+                  User authentication, CRUD operations, and real-time database.
                 </h2>
               </li>
               <li>
                 <h2 className="text-base font-text font-medium
                   text-zinc-900 dark:text-white"
                 >
-                  Manages income, expense, savings with real-time balance updates
+                  Manages income, expense, savings with real-time balance
+                  updates.
                 </h2>
               </li>
               <li>
                 <h2 className="text-base font-text font-medium
                   text-zinc-900 dark:text-white"
                 >
-                  Protected routes, responsive user-friendly Interface, and theme toggle
+                  Protected routes, responsive user-friendly Interface, and
+                  theme toggle.
 
                 </h2>
               </li>
@@ -118,12 +123,12 @@ const Home = () => {
           </div>
         }
         <div className="h-auto w-full text-center">
-          <h2 className="text-base font-text font-medium 
+          <h2 className="text-base font-text font-medium
             text-zinc-700 dark:text-zinc-300"
           >
             Web App developed by
-            <a 
-              href="https://najibdev.vercel.app" 
+            <a
+              href="https://najibdev.vercel.app"
               target="_blank"
               className="text-blue-600 underline ml-1"
             >
