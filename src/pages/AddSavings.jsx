@@ -125,7 +125,7 @@ const AddSavings = () => {
                   placeholder="type here"
                   className="input w-full text-base font-descriptions font-medium
                   text-zinc-900 dark:text-white bg-transparent border
-                  border-zinc-300 dark:border-zinc-400"
+                  border-zinc-300 dark:border-zinc-400 rounded"
                 />
               </div>
             </div>
@@ -147,7 +147,7 @@ const AddSavings = () => {
                   placeholder="type here"
                   className="input w-full text-base font-descriptions font-medium
                   text-zinc-900 dark:text-white bg-transparent border
-                  border-zinc-300 dark:border-zinc-400"
+                  border-zinc-300 dark:border-zinc-400 rounded"
                 />
               </div>
             </div>
@@ -156,7 +156,7 @@ const AddSavings = () => {
             >
               <div className="h-auto w-full text-left">
                 <h2 className="text-base font-medium font-descriptions
-                  text-zinc-700 dark:text-zinc-300"
+                  text-zinc-700 dark:text-zinc-300 rounded"
                 >
                   Date
                 </h2>
@@ -168,15 +168,15 @@ const AddSavings = () => {
                   required
                   className="input w-full text-base font-descriptions font-medium
                   text-zinc-900 dark:text-white bg-transparent border
-                  border-zinc-300 dark:border-zinc-400"
+                  border-zinc-300 dark:border-zinc-400 rounded"
                 />
               </div>
             </div>
             <div className="h-auto w-full mt-2">
               <button
                 type="submit"
-                className="w-full py-2 text-base font-descriptions font-medium
-                rounded cursor-pointer text-white bg-blue-700"
+                className="btn btn-info w-full text-base font-descriptions
+                font-medium rounded cursor-pointer text-white"
               >
                 Add
               </button>
