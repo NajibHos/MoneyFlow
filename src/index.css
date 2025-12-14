@@ -3,6 +3,9 @@
 @import "tailwindcss";
 /* daisy ui */
 @plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, acid;
+}
 
 /* tailwind dark mode config */
 @custom-variant dark (&:where(.dark, .dark *));
