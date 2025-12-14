@@ -99,11 +99,10 @@ const Home = () => {
           </div>
         </div>
         {
-          user && <div className="h-auto w-auto">
+          user && <div className="h-auto w-auto mt-5">
             <Link to={'/dashboard'}>
             <button
-              className="w-auto px-6 py-2 text-base font-text
-              font-medium rounded cursor-pointer text-white bg-blue-700"
+              className="btn btn-info text-white cursor-pointer  rounded"
             >
               Dashboard
             </button>
@@ -111,11 +110,10 @@ const Home = () => {
           </div>
         }
         {
-          !user && <div className="h-auto w-auto">
+          !user && <div className="h-auto w-auto my-5">
             <Link to={'/sign-in'}>
             <button
-              className="w-auto px-6 py-2 text-base font-text
-              font-medium rounded cursor-pointer text-white bg-blue-700"
+              className="btn btn-info text-white cursor-pointer  rounded"
             >
               Get Started
             </button>
