@@ -53,8 +53,8 @@ const Header = () => {
               <div className="h-auto w-auto hidden md:block">
                 <Link to='/sign-in'>
                 <button
-                  className="text-lg font-headings font-medium cursor-pointer
-                  text-zinc-900 dark:text-white hover:text-blue-600"
+                  className="text-base font-headings font-medium cursor-pointer
+                  text-zinc-700 dark:text-zinc-300 hover:text-blue-600"
                 >
                   Sign in
                 </button>
@@ -79,8 +79,8 @@ const Header = () => {
               <div className="h-auto w-auto hidden md:block">
                 <Link to='/dashboard'>
                 <button
-                  className="text-lg font-headings font-medium cursor-pointer
-                  text-zinc-900 dark:text-white hover:text-blue-600"
+                  className="text-base font-headings font-medium cursor-pointer
+                  text-zinc-700 dark:text-zinc-300 hover:text-blue-600"
                 >
                   Dashboard
                 </button>
@@ -90,8 +90,8 @@ const Header = () => {
               <div className="h-auto w-auto block md:hidden">
                 <button
                   className="flex justify-center items-center
-                  cursor-pointer text-zinc-900
-                  dark:text-white hover:text-blue-600"
+                  cursor-pointer text-zinc-900 dark:text-white
+                  hover:text-blue-600"
                   onClick={logOutUser}
                 >
                   <LogOut size={22} />
@@ -101,8 +101,8 @@ const Header = () => {
               <div className="h-auto w-auto hidden md:block">
                 <button
                   onClick={logOutUser}
-                  className="text-lg font-headings font-medium cursor-pointer
-                  text-zinc-900 dark:text-white hover:text-blue-600"
+                  className="text-base font-headings font-medium cursor-pointer
+                  text-zinc-700 dark:text-zinc-300 hover:text-blue-600"
                 >
                   Sign Out
                 </button>
