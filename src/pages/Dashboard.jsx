@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { DatabaseID, databases, DBCollectionID } from "../appwrite/Appwrite";
 import { useAuth } from "../utils/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { History, Plus } from "lucide-react";
 
 const Dashboard = () => {
 
@@ -85,7 +86,7 @@ const Dashboard = () => {
               Have a good day!
             </h2>
           </div>
-          <div className="h-auto w-full text-left">
+          <div className="h-auto w-full text-left mt-1">
             <h2 className="text-base font-descriptions font-medium
               text-zinc-700 dark:text-zinc-300"
             >
@@ -98,7 +99,7 @@ const Dashboard = () => {
         </div>
         <div className="h-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="h-auto w-full p-6 flex flex-col justify-center
-            items-center gap-5 rounded bg-card-light dark:bg-card-dark"
+            items-center gap-4 rounded-lg bg-card-light dark:bg-card-dark"
           >
             <div className="h-auto w-full text-left">
               <h2 className="text-base font-descriptions font-medium
@@ -115,15 +116,15 @@ const Dashboard = () => {
               </h2>
             </div>
             <div className="h-auto w-full flex justify-start items-center
-              gap-5"
+              gap-5 mt-2"
             >
               <div className="h-auto w-auto">
                 <button
                   onClick={() => navigate('/add-income')}
-                  className="px-3 py-1 text-base font-headings font-medium
-                  rounded cursor-pointer text-white bg-green-700"
+                  className="btn btn-sm btn-info rounded text-white"
                 >
-                  Add Income
+                  <Plus size={18} />
+                  Add income
                 </button>
               </div>
               <div className="h-auto w-auto">
@@ -134,8 +135,7 @@ const Dashboard = () => {
                       {state: {dataType: 'Income'}}
                     )
                   }}
-                  className="px-3 py-1 text-base font-headings font-medium
-                  rounded cursor-pointer text-white bg-stone-600"
+                  className="btn btn-sm rounded"
                 >
                   History
                 </button>
@@ -143,7 +143,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="h-auto w-full p-6 flex flex-col justify-center
-            items-center gap-5 rounded bg-card-light dark:bg-card-dark"
+            items-center gap-4 rounded-lg bg-card-light dark:bg-card-dark"
           >
             <div className="h-auto w-full text-left">
               <h2 className="text-base font-descriptions font-medium
@@ -160,14 +160,14 @@ const Dashboard = () => {
               </h2>
             </div>
             <div className="h-auto w-full flex justify-start items-center
-              gap-5"
+              gap-5 mt-2"
             >
               <div className="h-auto w-auto">
                 <button
                   onClick={() => navigate('/add-expense')}
-                  className="px-3 py-1 text-base font-headings font-medium
-                  rounded cursor-pointer text-white bg-red-700"
+                  className="btn btn-sm btn-info rounded text-white"
                 >
+                  <Plus size={18} />
                   Add Expense
                 </button>
               </div>
@@ -179,8 +179,7 @@ const Dashboard = () => {
                       {state: {dataType: 'Expense'}}
                     )
                   }}
-                  className="px-3 py-1 text-base font-headings font-medium
-                  rounded cursor-pointer text-white bg-stone-600"
+                  className="btn btn-sm rounded"
                 >
                   History
                 </button>
@@ -188,7 +187,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="h-auto w-full p-6 flex flex-col justify-center
-            items-center gap-5 rounded bg-card-light dark:bg-card-dark"
+            items-center gap-4 rounded-lg bg-card-light dark:bg-card-dark"
           >
             <div className="h-auto w-full text-left">
               <h2 className="text-base font-descriptions font-medium
@@ -205,14 +204,14 @@ const Dashboard = () => {
               </h2>
             </div>
             <div className="h-auto w-full flex justify-start items-center
-              gap-5"
+              gap-5 mt-2"
             >
               <div className="h-auto w-auto">
                 <button
                   onClick={() => navigate('/add-savings')}
-                  className="px-3 py-1 text-base font-headings font-medium
-                  rounded cursor-pointer text-white bg-blue-700"
+                  className="btn btn-sm btn-info rounded text-white"
                 >
+                  <Plus size={18} />
                   Add Savings
                 </button>
               </div>
@@ -224,8 +223,7 @@ const Dashboard = () => {
                       {state: {dataType: 'Savings'}}
                     )
                   }}
-                  className="px-3 py-1 text-base font-headings font-medium
-                  rounded cursor-pointer text-white bg-stone-600"
+                  className="btn btn-sm rounded"
                 >
                   History
                 </button>
