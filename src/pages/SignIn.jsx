@@ -20,7 +20,7 @@ const SignIn = () => {
 
   async function formAction(formData) {
     const email = formData.get('email');
-    const password = formData.get('password'); 
+    const password = formData.get('password');
 
     await logInUser({ email, password });
   }
@@ -30,7 +30,9 @@ const SignIn = () => {
       <div className="h-[80%] lg:h-full w-[90%] flex flex-col justify-center
         items-center gap-16 lg:gap-12"
       >
-        <div className="h-auto w-full flex flex-col justify-center items-center gap-4">
+        <div className="h-auto w-full flex flex-col justify-center items-center
+          gap-6"
+        >
           <div className="h-auto w-full text-center">
             <h2 className="text-2xl font-headings font-medium
               text-zinc-800 dark:text-zinc-200"
@@ -42,7 +44,7 @@ const SignIn = () => {
             <h2 className="text-base font-descriptions font-medium
               text-zinc-700 dark:text-zinc-300"
             >
-              Enter currect credentials to proceed further
+              Enter currect credentials to proceed further.
             </h2>
           </div>
         </div>
@@ -52,10 +54,10 @@ const SignIn = () => {
             items-center gap-8"
           >
             <div className="h-auto w-full flex flex-col justify-center
-              items-center gap-2"
+              items-center gap-3"
             >
               <div className="h-auto w-full text-left">
-                <h2 className="text-base font-medium font-descriptions 
+                <h2 className="text-base font-medium font-descriptions
                   text-zinc-700 dark:text-zinc-300"
                 >
                   Email
@@ -68,23 +70,25 @@ const SignIn = () => {
                   required
                   placeholder="example@gmail.com"
                   className="input w-full text-base font-descriptions font-medium
-                  text-zinc-900 dark:text-white bg-transparent border 
-                  border-zinc-300 dark:border-zinc-400"
+                  text-zinc-900 dark:text-white bg-transparent border
+                  border-zinc-300 dark:border-zinc-400 rounded"
                 />
               </div>
-              <div className="h-auto w-full text-left">
-                <h2 className="text-base font-descriptions font-medium
-                  text-zinc-700 dark:text-zinc-300"
+              <div className="h-auto w-full text-left mt-1">
+                <h2 className="text-sm font-descriptions font-medium
+                  text-zinc-600 dark:text-zinc-400"
                 >
-                  Email: <span className="text-lg text-blue-600">njbhossn@gmail.com</span>
+                  Email: <span className="underline">
+                    njbhossn@gmail.com
+                  </span>
                 </h2>
               </div>
             </div>
             <div className="h-auto w-full flex flex-col justify-center
-              items-center gap-2"
+              items-center gap-3"
             >
               <div className="h-auto w-full text-left">
-                <h2 className="text-base font-medium font-descriptions 
+                <h2 className="text-base font-medium font-descriptions
                   text-zinc-700 dark:text-zinc-300"
                 >
                   Password
@@ -95,26 +99,26 @@ const SignIn = () => {
                   type="password"
                   name="password"
                   required
-                  placeholder="type here"
+                  placeholder="password"
                   className="input w-full text-base font-descriptions font-medium
-                  text-zinc-900 dark:text-white bg-transparent border 
-                  border-zinc-300 dark:border-zinc-400"
+                  text-zinc-900 dark:text-white bg-transparent border
+                  border-zinc-300 dark:border-zinc-400 rounded"
                 />
               </div>
-              <div className="h-auto w-full text-left">
-                <h2 className="text-base font-descriptions font-medium
-                  text-zinc-700 dark:text-zinc-300"
+              <div className="h-auto w-full text-left mt-1">
+                <h2 className="text-sm font-descriptions font-medium
+                  text-zinc-600 dark:text-zinc-400"
                 >
-                  Password: <span className="text-lg text-blue-600">P12345678</span>
+                  Password: <span className="underline">P12345678</span>
                 </h2>
               </div>
             </div>
-            <div className="h-auto w-full">
+            <div className="h-auto w-full mt-1">
               <button
                 type="submit"
-                disabled={isPending}
-                className="w-full py-2 text-base font-descriptions font-medium  
-                rounded cursor-pointer text-white bg-blue-600 disabled:bg-blue-500"
+                disabled={isPending ? 'disabled' : ''}
+                className="btn btn-info w-full text-base font-text
+                cursor-pointer rounded text-white"
               >
                 {isPending ? 'Signing In...' : 'Sign In'}
               </button>
